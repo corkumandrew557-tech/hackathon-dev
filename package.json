@@ -1,0 +1,17 @@
+{
+  "name": "hackathon-dev",
+  "version": "1.0.0",
+  "description": "Lightweight API routing matrix and microservice gateway for software operations.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "backend",
+    "gateway",
+    "routing",
+    "microservices"
+  ],
+  "author": "Andrew c corkum",
+  "license": "MIT"
+}
