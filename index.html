@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass OS - Core Interface Panel</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --accent-blue: #58a6ff;
+            --status-green: #2ea44f;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dashboard-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 20px;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: var(--accent-blue);
+        }
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .metric-label {
+            font-weight: 600;
+        }
+        .metric-value {
+            font-family: monospace;
+            color: var(--status-green);
+        }
+        .control-btn {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 16px;
+        }
+        .control-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Compass OS Matrix Terminal</h1>
+    
+    <div class="metric-row">
+        <span class="metric-label">System Gateway Status</span>
+        <span class="metric-value">ONLINE</span>
+    </div>
+    <div class="metric-row">
+        <span class="metric-label">Active Matrix Loops</span>
+        <span class="metric-value">1 Active Loop</span>
+    </div>
+    <div class="metric-row">
+        <span class="metric-label">Data Packets Processed</span>
+        <span class="metric-value" id="requestCount">0 Packets</span>
+    </div>
+    
+    <button class="control-btn" onclick="refreshMetrics()">Query Real-Time Metrics</button>
+</div>
+
+<script>
+    function refreshMetrics() {
+        // Front-end UI action state placeholder
+        const countEl = document.getElementById('requestCount');
+        let currentCount = parseInt(countEl.innerText) || 0;
+        countEl.innerText = (currentCount + 1) + ' Packets';
+    }
+</script>
+
+</body>
+</html>
